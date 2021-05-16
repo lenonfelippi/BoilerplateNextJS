@@ -7,9 +7,17 @@ describe('Main', () => {
     const { container } = render(<Main />)
 
     expect(
-      screen.getByRole('heading', { name: /Next :D/i })
+      screen.getByRole('heading', { name: /Boilerplate NextJS/i })
     ).toBeInTheDocument()
 
     expect(container.firstChild).toMatchSnapshot()
+  })
+
+  it('should render the colors correctly', () => {
+    const { container } = render(<Main />)
+
+    expect(container.firstChild).toHaveStyle({
+      'background-color': '#e0e0e0'
+    })
   })
 })
